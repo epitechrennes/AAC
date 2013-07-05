@@ -1,17 +1,25 @@
+var XML = require('xml');
+
 var Members = {
   Resource: {
     //affichage
     get: function(uid, callback) {
-      // console.log("affichage membre" + uid);
-      callback(null, {uid: uid, 
-        body: this.body, 
-        cookies: this.cookies, 
-        query: this.query, 
-        token : this.token});
+      
+      var reponse = {
+        headers : {"Content-Type" : "text/xml"},
+        body : "",
+      };
+
+      if(uid >= 10){
+        reponse.body = "<status>ok</status>";
+      }else{
+        reponse.body = "<status>ko</status>";
+      }
+
+      callback(null, reponse);
     },
     //création
     post: function(uid, callback) {
-      // console.log("création membre" + uid);
       callback(null, {uid: uid, 
         body: this.body, 
         cookies: this.cookies, 
@@ -20,7 +28,6 @@ var Members = {
     },
     //modification
     put: function(uid, callback) {
-      // console.log("modification membre" + uid);
       callback(null, {uid: uid, 
         body: this.body, 
         cookies: this.cookies, 
@@ -29,7 +36,6 @@ var Members = {
     },
     //suppression
     delete: function(uid, callback) {
-      // console.log("suppression membre" + uid);
       callback(null, {uid: uid, 
         body: this.body, 
         cookies: this.cookies, 
@@ -40,7 +46,6 @@ var Members = {
 
   Collection: {
     get: function(callback) {
-      // console.log("membres")
       callback(null, {all: 'members'});
     }
   }

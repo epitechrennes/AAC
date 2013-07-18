@@ -225,6 +225,9 @@ void httpRequest(String uidString) {
     client.print("HOST: ");
     client.println(serverName);
     client.println();
+  } else {
+    Serial.println(F("Connection failed"));
+    done = true;
   }
   // note the time of this connect attempt:
   lastAttemptTime = millis();

@@ -1,0 +1,27 @@
+    <div class="container" >
+     <div class="hero-unit">
+         <h1>AAC</h1>
+         <p>Cantine/Epitech Project.</p>
+        <!-- <p><a href="#" class="btn btn-primary btn-large">Bouton</a></p>-->
+      </div>
+      <legend>List User Tab</legend>
+     <div class="gridStyle" ng-grid="gridOptions"></div><br/>
+        <legend>List User</legend>
+        <ul>
+            <li ng-repeat="person in persons">
+               <div    click-to-edit="person.firstname" index2="person" index3="update"></div>
+               <div   click-to-edit="person.familyname " index2="person" index3="update"></div>
+               <button ng-click="delete(person.idmembers)"><i class="icon-minus-sign"></i></button>
+               <button ng-click="update(person)"><i class="icon-plus-sign"/></i></button>
+            </li>
+         </ul>
+         <form ng-submit="createUser()">
+            <legend>Create User</legend>
+            <label>firstname</label>
+            <input type="text" id="firstname" name="firstname" ng-model="user.firstname" placeholder="FirstName">
+            <label>familyname</label>
+            <input type="text" id="familyname" name="familyname" ng-model="user.familyname" placeholder="FamilyName">
+            <button class="btn btn-primary">Save</button>
+         </form>
+      </div>
+      <!-- /container -->

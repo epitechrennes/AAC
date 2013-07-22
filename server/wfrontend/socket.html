@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Socket IO Demo</title>
+
+<script>document.write('<script src="//'+ location.hostname + ':1340/socket.io/socket.io.js">\x3C/script>')</script>
+</head>
+<body>
+<script>
+  var socket = io.connect('https://server.auandgo.com:1340/');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+</body>
+</html>
